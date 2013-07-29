@@ -7,7 +7,7 @@ ParticleCluster::ParticleCluster(){
 	numParticles = 10;
 	clusterRadius = 70;
 	clusterRotation = 0;
-	rotationIncrement = TWO_PI / 4000;
+	rotationIncrement = TWO_PI / 200;
 
 	pos.set(0, 0, 0);
 
