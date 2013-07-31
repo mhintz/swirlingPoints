@@ -7,7 +7,7 @@ ParticleCluster::ParticleCluster(){
 	numParticles = 10;
 	clusterRadius = 70;
 	clusterRotation = 0;
-	rotationIncrement = TWO_PI / 200;
+	rotationIncrement = TWO_PI / 100;
 
 	pos.set(0, 0, 0);
 
@@ -19,6 +19,7 @@ void ParticleCluster::setup(){
 
 	for (int i = 0; i < numParticles; ++i){
 		particleList[i].update(pos.x, pos.y, pos.z);
+		particleList[i].particleDisplacement = i / TWO_PI;
 	}
 
 }
@@ -34,13 +35,14 @@ void ParticleCluster::update(){
 	Particle currentParticle;
 
 	for (int i = 0; i < numParticles; ++i){
-		particleRotation = (i * particleIncrement) + clusterRotation;
-		particleX = pos.x + (clusterRadius * cos(particleRotation));
-		particleY = pos.y + (clusterRadius * sin(particleRotation));
+		particleRotation = (i * particleIncrement); //+ clusterRotation;
+		particleX = pos.x + ((clusterRadius * cos(particleRotation)) * cos(particleList[i].particleDisplacement));
+		particleY = pos.y + ((clusterRadius * sin(particleRotation)) * cos(particleList[i].particleDisplacement));
 		particleList[i].update(particleX, particleY, particleZ);
+		particleList[i].particleDisplacement += particleList[i].increaseDirection * rotationIncrement;
 	}
 
-	clusterRotation += rotationIncrement;
+	//clusterRotation += rotationIncrement;
 }
 
 void ParticleCluster::draw(){

@@ -5,7 +5,7 @@ using namespace std;
 //--------------------------------------------------------------
 void testApp::setup(){
 
-	ofSetFrameRate(30);
+	ofSetFrameRate(60);
 	//set background color
 	ofBackground(0, 0, 0);
 	// setup cluster surrounding the mouse

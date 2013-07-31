@@ -9,6 +9,8 @@ Particle::Particle(){
 	// particle display characteristics
 	r = 5;
 	color = 0xffffff;
+	particleDisplacement = 0;
+	increaseDirection = 1;
 }
 
 void Particle::update(){

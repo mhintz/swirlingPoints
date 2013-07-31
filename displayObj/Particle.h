@@ -7,8 +7,11 @@ class Particle{
 
 		float r;
 		int color;
+		float particleDisplacement;
+		float increaseDirection;
 
 		ofVec3f pos;
+		ofVec3f translate;
 		ofVec3f vel;
 		ofVec3f acc;
 
