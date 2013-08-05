@@ -35,14 +35,14 @@ void ParticleCluster::update(){
 	Particle currentParticle;
 
 	for (int i = 0; i < numParticles; ++i){
-		particleRotation = (i * particleIncrement); //+ clusterRotation;
+		particleRotation = (i * particleIncrement) + clusterRotation;
 		particleX = pos.x + ((clusterRadius * cos(particleRotation)) * cos(particleList[i].particleDisplacement));
 		particleY = pos.y + ((clusterRadius * sin(particleRotation)) * cos(particleList[i].particleDisplacement));
 		particleList[i].update(particleX, particleY, particleZ);
 		particleList[i].particleDisplacement += particleList[i].increaseDirection * rotationIncrement;
 	}
 
-	//clusterRotation += rotationIncrement;
+	clusterRotation += rotationIncrement;
 }
 
 void ParticleCluster::draw(){
