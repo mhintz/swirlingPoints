@@ -34,5 +34,6 @@ build/*
 *.perspectivev3
 *~.nib
 #ignore private workspace stuff added by Xcode4
+xcshareddata
 xcuserdata
 project.xcworkspace
